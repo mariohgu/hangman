@@ -86,8 +86,7 @@ def loadWord():
     listWord = list(chooseWord)
     playerWord = ["_" for i in range (0,len(chooseWord))]
     attp = 0    
-    while listWord != playerWord and attp<6:
-        
+    while listWord != playerWord and attp<6:        
         lett = input("           Please, give me a letter: ")
         if lett not in playerWord:
             for i,j in enumerate(chooseWord):
