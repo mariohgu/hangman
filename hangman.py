@@ -9,6 +9,7 @@ dibujar al ahorcado
 mejorar interfaz.
 '''
 
+import os
 from random import randint
 
 
@@ -16,21 +17,21 @@ def loadWord():
     word = []
     with open("./files/data.txt","r",encoding="utf-8") as f:
         for line in f:
-            word.append(line)
-       
-    chooseWord = 'servilleta'#word[randint(0,len(word))].rstrip('\n')
+            word.append(line)       
+    chooseWord = word[randint(0,len(word))].rstrip('\n')
     listWord = list(chooseWord)
-    print(listWord)
-    playerWord = []
+    playerWord = ["_" for i in range (0,len(chooseWord))]
+    
     while listWord != playerWord:
-        lett = input("Please, give a letter: ")
+        #os.system('cls')
+        lett = input("Please, give me a letter: ")
         if lett not in playerWord:
             for i,j in enumerate(chooseWord):
                 if j == lett:
-                    playerWord.insert(i,j)
+                    playerWord[i]=j
             print (playerWord)
         else:
-            print("You already used that letter.")
+            print("You are right, but you already used that letter.")
     print("LO LOGRASTE")    
 
   
